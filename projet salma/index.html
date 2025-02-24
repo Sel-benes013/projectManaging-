@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MyManager</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logobg.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- selecteur de langues  -->
+    <div class="language-selector">
+        <button class="language-btn active" data-lang="fr">FR</button>
+        <button class="language-btn" data-lang="en">EN</button>
+        <button class="language-btn" data-lang="ar">عربي</button>
+    </div>
+
+    <!-- formulaire de'authentification  -->
+    <div class="login-container">
+        <div class="login-header">
+            <img src="images/logo.png" alt="Logo" class="mb-4">
+            <h2 id="loginTitle">Connexion</h2>
+        </div>
+
+        <form class="login-form" id="loginForm">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="username" placeholder="Nom d'utilisateur" required>
+                <label for="username" id="usernameLabel">Nom d'utilisateur</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="password" class="form-control" id="password" placeholder="Mot de passe" required>
+                <label for="password" id="passwordLabel">Mot de passe</label>
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                Une erreur s'est produite : Nom d'utilisateur ou mot de passe incorrect.
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-2 mt-3" id="loginButton">
+                Se connecter
+            </button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts/login.js"></script>
+
+    <script>
+        // traduction de la page d'authentification
+        const translations = {
+            fr: {
+                loginTitle: 'Connexion',
+                usernamePlaceholder: 'Nom d\'utilisateur',
+                usernameLabel: 'Nom d\'utilisateur',
+                passwordPlaceholder: 'Mot de passe',
+                passwordLabel: 'Mot de passe',
+                loginButton: 'Se connecter',
+                errorMessage: 'Une erreur s\'est produite : Nom d\'utilisateur ou mot de passe incorrect.'
+            },
+            en: {
+                loginTitle: 'Login',
+                usernamePlaceholder: 'Username',
+                usernameLabel: 'Username',
+                passwordPlaceholder: 'Password',
+                passwordLabel: 'Password',
+                loginButton: 'Login',
+                errorMessage: 'An error occurred: Incorrect username or password.'
+            },
+            ar: {
+                loginTitle: 'تسجيل الدخول',
+                usernamePlaceholder: 'اسم المستخدم',
+                usernameLabel: 'اسم المستخدم',
+                passwordPlaceholder: 'كلمة المرور',
+                passwordLabel: 'كلمة المرور',
+                loginButton: 'تسجيل الدخول',
+                errorMessage: 'حدث خطأ: اسم المستخدم أو كلمة المرور غير صحيحة.'
+            }
+        };
+
+        // fonction de changement de langue 
+        function changeLanguage(lang) {
+            const translation = translations[lang];
+            document.getElementById('loginTitle').textContent = translation.loginTitle;
+            document.getElementById('username').placeholder = translation.usernamePlaceholder;
+            document.getElementById('usernameLabel').textContent = translation.usernameLabel;
+            document.getElementById('password').placeholder = translation.passwordPlaceholder;
+            document.getElementById('passwordLabel').textContent = translation.passwordLabel;
+            document.getElementById('loginButton').textContent = translation.loginButton;
+            document.getElementById('errorMessage').textContent = translation.errorMessage;
+
+            // bouton demise à jour d'activation de la langue 
+            document.querySelectorAll('.language-btn').forEach(button => {
+                button.classList.remove('active');
+                if (button.dataset.lang === lang) {
+                    button.classList.add('active');
+                }
+            });
+
+            // enregistrement de changement de la langue 
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        // appliquer la traduction de la langue enregistré du localstorage
+        document.querySelectorAll('.language-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const selectedLang = this.dataset.lang;
+                changeLanguage(selectedLang); 
+            });
+        });
+
+        // Charger la langue sélectionnée depuis localStorage lors du chargement de la page
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'fr'; // Default to French
+            changeLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>

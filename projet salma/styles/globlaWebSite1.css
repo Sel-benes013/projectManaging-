@@ -1,0 +1,150 @@
+/* globlaWebSite1.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fce4ec; /* Rose pâle */
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    background-color: #f8bbd0; /* Rose pastel */
+    border-right: 2px solid #ec407a;
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+[dir="rtl"] .sidebar {
+    left: auto;
+    right: 0;
+    border-right: none;
+    border-left: 2px solid #ec407a;
+}
+
+.sidebar h2 {
+    color: #000000; /* Noir */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #000000; /* Noir */
+    display: flex;
+    align-items: center;
+}
+
+.nav-link:hover {
+    background-color: #f48fb1; /* Rose clair */
+    color: #ffffff; /* Blanc au survol */
+    transform: translateY(-5px); /* Effet de flottement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+}
+
+.btn-danger {
+    background-color: #ec407a; /* Rose vif */
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #d81b60; /* Rose plus foncé */
+}
+
+.main-content {
+    background-color: #ffe8e8; /* Beige rosé */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-left: 250px; /* Adjust for sidebar */
+    min-height: 100vh;
+    overflow: hidden; /* Prevent content overflow */
+}
+
+[dir="rtl"] .main-content {
+    margin-left: 0;
+    margin-right: 250px;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #000000; /* Noir */
+    font-size: 2.5rem;
+    margin-top: 0; /* Remove default margin */
+}
+
+p {
+    font-size: 1.2rem;
+    color: #5a5a5a; /* Gris doux */
+}
+
+/* Recent Tabs and Quick Links Sections */
+.recent-tabs-section, .quick-links-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.recent-tabs-content, .quick-links-content {
+    padding: 10px;
+}
+
+.btn-quick-link {
+    background-color: #ec407a; /* Rose vif */
+    color: #ffffff;
+    border: none;
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: 100%; /* Full width for buttons */
+}
+
+.btn-quick-link:hover {
+    background-color: #d81b60; /* Rose plus foncé */
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}

@@ -1,0 +1,152 @@
+/* createuser.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fce4ec; /* Rose pâle */
+}
+
+.sidebar {
+    background-color: #f8bbd0; /* Rose pastel */
+    border-right: 2px solid #ec407a;
+    height: 100vh; /* Full height */
+}
+
+.sidebar h2 {
+    color: #000000; /* Noir */
+    font-family: 'Montserrat', sans-serif; /* Police élégante */
+    font-weight: 700; /* Gras */
+    font-size: 1.8rem; /* Taille de police légèrement plus grande */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour le texte */
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #000000; /* Noir */
+    display: flex;
+    align-items: center;
+}
+
+.nav-link:hover {
+    background-color: #f48fb1; /* Rose clair */
+    color: #ffffff; /* Blanc au survol */
+    transform: translateY(-5px); /* Effet de flottement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+}
+
+.menu-icon {
+    width: 32px; /* Increased size */
+    height: 32px; /* Increased size */
+    margin-right: 10px; /* Spacing between icon and text */
+}
+
+.btn-danger {
+    background-color: #ec407a; /* Rose vif */
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #d81b60; /* Rose plus foncé */
+}
+
+.main-content {
+    flex: 1; /* Take remaining space */
+    padding: 20px;
+    background-color: #ffe8e8; /* Beige rosé */
+}
+
+/* Professional form styling */
+#createUserForm {
+    background-color: #ffffff; /* White background for the form */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 25px; /* Padding inside the form */
+    max-width: 800px; /* Limit the width of the form */
+    margin: 0 auto; /* Center the form */
+}
+
+#createUserForm label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #333333; /* Dark gray for labels */
+    margin-bottom: 8px; /* Spacing below labels */
+}
+
+#createUserForm input {
+    border: 1px solid #e0e0e0; /* Light gray border */
+    border-radius: 8px; /* Rounded corners for inputs */
+    padding: 10px; /* Padding inside inputs */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #000000;
+    background-color: #ffffff; /* White background for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#createUserForm input:focus {
+    border-color: #ec407a; /* Pink border on focus */
+    box-shadow: 0 0 8px rgba(236, 64, 122, 0.3); /* Subtle shadow on focus */
+}
+
+#createUserForm .btn-custom {
+    background-color: #ec407a; /* Rose vif */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Rounded corners for button */
+    padding: 10px 20px; /* Padding inside button */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+#createUserForm .btn-custom:hover {
+    background-color: #d81b60; /* Rose plus foncé */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+/* Popup Message Styling */
+.popup-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1000;
+    width: 400px; /* Larger popup */
+    text-align: center;
+}
+
+.popup-gif {
+    width: 80px; /* Larger GIF */
+    height: 80px; /* Larger GIF */
+    margin-bottom: 20px;
+}
+
+.popup-text {
+    font-size: 1.5rem; /* Larger text */
+    color: #333;
+    font-weight: 600;
+}
+
+/* Blurred Background Overlay */
+.blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    backdrop-filter: blur(8px); /* Blur effect */
+    z-index: 999; /* Below the popup */
+    display: none;
+}

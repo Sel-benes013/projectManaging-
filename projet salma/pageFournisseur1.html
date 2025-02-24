@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr"> <!-- Default to French (left-to-right) -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fournisseurs</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logobg.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/pageFournisseur1.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar p-3">
+            <h2 class="text-center text-uppercase" id="menuTitle">Menu</h2>
+            <ul class="nav flex-column mt-4">
+                <li class="nav-item mb-3">
+                    <a href="globlaWebSite1.html" class="nav-link text-dark">
+                        <img src="images/home.png" alt="Accueil" class="menu-icon"> <span id="homeLink">Accueil</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="dashboard1.html" class="nav-link text-dark">
+                        <img src="images/dashboard.png" alt="Dashboard" class="menu-icon"> <span id="dashboardLink">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="page1.html" class="nav-link text-dark">
+                        <img src="images/products.png" alt="Produits" class="menu-icon"> <span id="productsLink">Produits</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageCommandes1.html" class="nav-link text-dark">
+                        <img src="images/orders.png" alt="Commandes" class="menu-icon"> <span id="ordersLink">Commandes</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageFournisseur1.html" class="nav-link text-dark">
+                        <img src="images/suppliers.png" alt="Fournisseurs" class="menu-icon"> <span id="suppliersLink">Fournisseurs</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageRapport1.html" class="nav-link text-dark">
+                        <img src="images/reports.png" alt="Rapports" class="menu-icon"> <span id="reportsLink">Rapports</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="createuser1.html" class="nav-link text-dark">
+                        <img src="images/add.png" alt="Créer un utilisateur" class="menu-icon"> <span id="createUserLink">Créer un utilisateur</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="displayusers1.html" class="nav-link text-dark">
+                        <img src="images/view.png" alt="Voir les utilisateurs" class="menu-icon"> <span id="viewUsersLink">Voir les utilisateurs</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageParam1.html" class="nav-link text-dark">
+                        <img src="images/settings.png" alt="Paramètres" class="menu-icon"> <span id="settingsLink">Paramètres</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Bouton de Déconnexion -->
+            <button class="btn btn-danger w-100 mt-5" id="logoutButton">Déconnexion</button>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1 class="text-center mb-4" id="suppliersTitle">Gestion des Fournisseurs</h1>
+
+            <!-- Section Liste des Fournisseurs -->
+            <div class="card mb-5">
+                <div class="card-header bg-dark text-white" id="suppliersListHeader">
+                    Liste des Fournisseurs
+                </div>
+                <div class="card-body">
+                    <!-- Filter Options -->
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="filterSupplierName" placeholder="Filtrer par nom">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="filterCompany" placeholder="Filtrer par entreprise">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="filterPhone" placeholder="Filtrer par téléphone">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="filterAddress" placeholder="Filtrer par adresse">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <select class="form-control" id="sortSupplier">
+                                <option value="asc">Trier par nom (A-Z)</option>
+                                <option value="desc">Trier par nom (Z-A)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-custom" id="exportSupplierCSV">Exporter en CSV</button>
+                        </div>
+                    </div>
+                    <table class="table table-bordered mt-3" id="supplierTable">
+                        <thead>
+                            <tr>
+                                <th id="supplierNameHeader">Nom</th>
+                                <th id="supplierFirstNameHeader">Prénom</th>
+                                <th id="supplierCompanyHeader">Entreprise</th>
+                                <th id="supplierAddressHeader">Adresse</th>
+                                <th id="supplierPhoneHeader">Téléphone</th>
+                                <th id="actionsHeader">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fournisseurTableBody">
+                            <!-- Les fournisseurs seront ajoutés dynamiquement ici -->
+                        </tbody>
+                    </table>
+                    <nav>
+                        <ul class="pagination justify-content-center" id="supplierPagination">
+                            <!-- La pagination sera ajoutée dynamiquement ici -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Section Ajouter un Fournisseur -->
+            <div class="card mb-5">
+                <div class="card-header bg-dark text-white" id="addSupplierHeader">
+                    Ajouter un Fournisseur
+                </div>
+                <div class="card-body">
+                    <form id="fournisseurForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="nomFournisseur" class="form-label" id="supplierNameLabel">Nom</label>
+                                <input type="text" class="form-control" id="nomFournisseur" placeholder="Entrez le nom du fournisseur" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="prenomFournisseur" class="form-label" id="supplierFirstNameLabel">Prénom</label>
+                                <input type="text" class="form-control" id="prenomFournisseur" placeholder="Entrez le prénom du fournisseur" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="entrepriseFournisseur" class="form-label" id="supplierCompanyLabel">Entreprise</label>
+                                <input type="text" class="form-control" id="entrepriseFournisseur" placeholder="Entrez le nom de l'entreprise" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="telephoneFournisseur" class="form-label" id="supplierPhoneLabel">Téléphone</label>
+                                <input type="tel" class="form-control" id="telephoneFournisseur" placeholder="Entrez le numéro de téléphone" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="adresseFournisseur" class="form-label" id="supplierAddressLabel">Adresse</label>
+                                <input type="text" class="form-control" id="adresseFournisseur" placeholder="Entrez l'adresse du fournisseur" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-custom mt-3" id="addSupplierButton">Ajouter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Message -->
+    <div id="popupMessage" class="popup-message" style="display: none;">
+        <img id="popupGif" src="" alt="Status GIF" class="popup-gif">
+        <p id="popupText"></p>
+    </div>
+
+    <!-- Blurred Background Overlay -->
+    <div id="blurOverlay" class="blur-overlay" style="display: none;"></div>
+
+    <!-- Modal pour modifier un fournisseur -->
+    <div id="editSupplierModal" class="modal fade" tabindex="-1" aria-labelledby="editSupplierModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editSupplierModalLabel">Modifier le Fournisseur</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editSupplierForm">
+                        <div class="mb-3">
+                            <label for="editNomFournisseur" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="editNomFournisseur" placeholder="Entrez le nom du fournisseur" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPrenomFournisseur" class="form-label">Prénom</label>
+                            <input type="text" class="form-control" id="editPrenomFournisseur" placeholder="Entrez le prénom du fournisseur" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEntrepriseFournisseur" class="form-label">Entreprise</label>
+                            <input type="text" class="form-control" id="editEntrepriseFournisseur" placeholder="Entrez le nom de l'entreprise" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editTelephoneFournisseur" class="form-label">Téléphone</label>
+                            <input type="tel" class="form-control" id="editTelephoneFournisseur" placeholder="Entrez le numéro de téléphone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editAdresseFournisseur" class="form-label">Adresse</label>
+                            <input type="text" class="form-control" id="editAdresseFournisseur" placeholder="Entrez l'adresse du fournisseur" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-custom" onclick="saveEditedSupplier()">Enregistrer les modifications</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts/pageFournisseur1.js"></script>
+
+    <script>
+        // Translations for pageFournisseur1.html
+        const translations = {
+            fr: {
+                menuTitle: 'Menu',
+                homeLink: 'Accueil',
+                dashboardLink: 'Dashboard',
+                productsLink: 'Produits',
+                ordersLink: 'Commandes',
+                suppliersLink: 'Fournisseurs',
+                reportsLink: 'Rapports',
+                settingsLink: 'Paramètres',
+                createUserLink: 'Créer un utilisateur',
+                viewUsersLink: 'Voir les utilisateurs',
+                suppliersTitle: 'Gestion des Fournisseurs',
+                suppliersListHeader: 'Liste des Fournisseurs',
+                supplierNameHeader: 'Nom',
+                supplierFirstNameHeader: 'Prénom',
+                supplierCompanyHeader: 'Entreprise',
+                supplierAddressHeader: 'Adresse',
+                supplierPhoneHeader: 'Téléphone',
+                actionsHeader: 'Actions',
+                addSupplierHeader: 'Ajouter un Fournisseur',
+                supplierNameLabel: 'Nom',
+                supplierFirstNameLabel: 'Prénom',
+                supplierCompanyLabel: 'Entreprise',
+                supplierPhoneLabel: 'Téléphone',
+                supplierAddressLabel: 'Adresse',
+                addSupplierButton: 'Ajouter',
+                logoutButton: 'Déconnexion',
+                supplierAddedSuccess: 'Fournisseur ajouté avec succès!',
+                supplierDeletedSuccess: 'Fournisseur supprimé avec succès!',
+                supplierUpdatedSuccess: 'Fournisseur modifié avec succès!',
+                filterPlaceholder: 'Filtrer par nom',
+                filterCompanyPlaceholder: 'Filtrer par entreprise',
+                filterPhonePlaceholder: 'Filtrer par téléphone',
+                filterAddressPlaceholder: 'Filtrer par adresse',
+                sortAsc: 'Trier par nom (A-Z)',
+                sortDesc: 'Trier par nom (Z-A)',
+                exportCSV: 'Exporter en CSV',
+                viewDetails: 'Voir les détails',
+                edit: 'Modifier',
+                delete: 'Supprimer',
+                deleteConfirmation: 'Êtes-vous sûr de vouloir supprimer ce fournisseur?',
+                // Placeholders
+                supplierNamePlaceholder: 'Entrez le nom du fournisseur',
+                supplierFirstNamePlaceholder: 'Entrez le prénom du fournisseur',
+                supplierCompanyPlaceholder: 'Entrez le nom de l\'entreprise',
+                supplierPhonePlaceholder: 'Entrez le numéro de téléphone',
+                supplierAddressPlaceholder: 'Entrez l\'adresse du fournisseur'
+            },
+            en: {
+                menuTitle: 'Menu',
+                homeLink: 'Home',
+                dashboardLink: 'Dashboard',
+                productsLink: 'Products',
+                ordersLink: 'Orders',
+                suppliersLink: 'Suppliers',
+                reportsLink: 'Reports',
+                settingsLink: 'Settings',
+                createUserLink: 'Create User',
+                viewUsersLink: 'View Users',
+                suppliersTitle: 'Suppliers Management',
+                suppliersListHeader: 'Suppliers List',
+                supplierNameHeader: 'Name',
+                supplierFirstNameHeader: 'First Name',
+                supplierCompanyHeader: 'Company',
+                supplierAddressHeader: 'Address',
+                supplierPhoneHeader: 'Phone',
+                actionsHeader: 'Actions',
+                addSupplierHeader: 'Add a Supplier',
+                supplierNameLabel: 'Name',
+                supplierFirstNameLabel: 'First Name',
+                supplierCompanyLabel: 'Company',
+                supplierPhoneLabel: 'Phone',
+                supplierAddressLabel: 'Address',
+                addSupplierButton: 'Add',
+                logoutButton: 'Logout',
+                supplierAddedSuccess: 'Supplier added successfully!',
+                supplierDeletedSuccess: 'Supplier deleted successfully!',
+                supplierUpdatedSuccess: 'Supplier updated successfully!',
+                filterPlaceholder: 'Filter by name',
+                filterCompanyPlaceholder: 'Filter by company',
+                filterPhonePlaceholder: 'Filter by phone',
+                filterAddressPlaceholder: 'Filter by address',
+                sortAsc: 'Sort by name (A-Z)',
+                sortDesc: 'Sort by name (Z-A)',
+                exportCSV: 'Export to CSV',
+                viewDetails: 'View Details',
+                edit: 'Edit',
+                delete: 'Delete',
+                deleteConfirmation: 'Are you sure you want to delete this supplier?',
+                // Placeholders
+                supplierNamePlaceholder: 'Enter the supplier name',
+                supplierFirstNamePlaceholder: 'Enter the supplier first name',
+                supplierCompanyPlaceholder: 'Enter the company name',
+                supplierPhonePlaceholder: 'Enter the phone number',
+                supplierAddressPlaceholder: 'Enter the supplier address'
+            },
+            ar: {
+                menuTitle: 'القائمة',
+                homeLink: 'الصفحة الرئيسية',
+                dashboardLink: 'لوحة التحكم',
+                productsLink: 'المنتجات',
+                ordersLink: 'الطلبات',
+                suppliersLink: 'الموردين',
+                reportsLink: 'التقارير',
+                settingsLink: 'الإعدادات',
+                createUserLink: 'إنشاء مستخدم',
+                viewUsersLink: 'عرض المستخدمين',
+                suppliersTitle: 'إدارة الموردين',
+                suppliersListHeader: 'قائمة الموردين',
+                supplierNameHeader: 'الاسم',
+                supplierFirstNameHeader: 'الاسم الأول',
+                supplierCompanyHeader: 'الشركة',
+                supplierAddressHeader: 'العنوان',
+                supplierPhoneHeader: 'الهاتف',
+                actionsHeader: 'الإجراءات',
+                addSupplierHeader: 'إضافة مورد',
+                supplierNameLabel: 'الاسم',
+                supplierFirstNameLabel: 'الاسم الأول',
+                supplierCompanyLabel: 'الشركة',
+                supplierPhoneLabel: 'الهاتف',
+                supplierAddressLabel: 'العنوان',
+                addSupplierButton: 'إضافة',
+                logoutButton: 'تسجيل الخروج',
+                supplierAddedSuccess: 'تمت إضافة المورد بنجاح!',
+                supplierDeletedSuccess: 'تم حذف المورد بنجاح!',
+                supplierUpdatedSuccess: 'تم تحديث المورد بنجاح!',
+                filterPlaceholder: 'تصفية حسب الاسم',
+                filterCompanyPlaceholder: 'تصفية حسب الشركة',
+                filterPhonePlaceholder: 'تصفية حسب الهاتف',
+                filterAddressPlaceholder: 'تصفية حسب العنوان',
+                sortAsc: 'ترتيب حسب الاسم (أ-ي)',
+                sortDesc: 'ترتيب حسب الاسم (ي-أ)',
+                exportCSV: 'تصدير إلى CSV',
+                viewDetails: 'عرض التفاصيل',
+                edit: 'تعديل',
+                delete: 'حذف',
+                deleteConfirmation: 'هل أنت متأكد أنك تريد حذف هذا المورد؟',
+                // Placeholders
+                supplierNamePlaceholder: 'أدخل اسم المورد',
+                supplierFirstNamePlaceholder: 'أدخل الاسم الأول للمورد',
+                supplierCompanyPlaceholder: 'أدخل اسم الشركة',
+                supplierPhonePlaceholder: 'أدخل رقم الهاتف',
+                supplierAddressPlaceholder: 'أدخل عنوان المورد'
+            }
+        };
+
+        // Load the selected language from localStorage on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'fr';
+            document.documentElement.lang = savedLang;
+            document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
+            applyTranslations(savedLang);
+        });
+
+        // Apply translations
+        function applyTranslations(lang) {
+            const translation = translations[lang];
+            for (const [key, value] of Object.entries(translation)) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = value;
+                }
+            }
+
+            // Apply placeholders
+            document.getElementById('nomFournisseur').placeholder = translation.supplierNamePlaceholder;
+            document.getElementById('prenomFournisseur').placeholder = translation.supplierFirstNamePlaceholder;
+            document.getElementById('entrepriseFournisseur').placeholder = translation.supplierCompanyPlaceholder;
+            document.getElementById('telephoneFournisseur').placeholder = translation.supplierPhonePlaceholder;
+            document.getElementById('adresseFournisseur').placeholder = translation.supplierAddressPlaceholder;
+
+            // Apply filter placeholders
+            document.getElementById('filterSupplierName').placeholder = translation.filterPlaceholder;
+            document.getElementById('filterCompany').placeholder = translation.filterCompanyPlaceholder;
+            document.getElementById('filterPhone').placeholder = translation.filterPhonePlaceholder;
+            document.getElementById('filterAddress').placeholder = translation.filterAddressPlaceholder;
+
+            // Apply sort options
+            const sortSupplier = document.getElementById('sortSupplier');
+            if (sortSupplier) {
+                sortSupplier.innerHTML = `
+                    <option value="asc">${translation.sortAsc}</option>
+                    <option value="desc">${translation.sortDesc}</option>
+                `;
+            }
+
+            // Apply export CSV button text
+            document.getElementById('exportSupplierCSV').textContent = translation.exportCSV;
+        }
+
+        // Logout functionality
+        document.getElementById('logoutButton').addEventListener('click', function () {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

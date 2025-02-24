@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapports</title>
+        <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logobg.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/pageRapport1.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar p-3">
+            <h2 class="text-center text-uppercase" id="menuTitle">Menu</h2>
+            <ul class="nav flex-column mt-4">
+                <li class="nav-item mb-3">
+                    <a href="globlaWebSite1.html" class="nav-link text-dark">
+                        <img src="images/home.png" alt="Accueil" class="menu-icon"> <span id="homeLink">Accueil</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="dashboard1.html" class="nav-link text-dark">
+                        <img src="images/dashboard.png" alt="Dashboard" class="menu-icon"> <span id="dashboardLink">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="page1.html" class="nav-link text-dark">
+                        <img src="images/products.png" alt="Produits" class="menu-icon"> <span id="productsLink">Produits</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageCommandes1.html" class="nav-link text-dark">
+                        <img src="images/orders.png" alt="Commandes" class="menu-icon"> <span id="ordersLink">Commandes</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageFournisseur1.html" class="nav-link text-dark">
+                        <img src="images/suppliers.png" alt="Fournisseurs" class="menu-icon"> <span id="suppliersLink">Fournisseurs</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageRapport1.html" class="nav-link text-dark">
+                        <img src="images/reports.png" alt="Rapports" class="menu-icon"> <span id="reportsLink">Rapports</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="createuser1.html" class="nav-link text-dark">
+                        <img src="images/add.png" alt="Créer un utilisateur" class="menu-icon"> <span id="createUserLink">Créer un utilisateur</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="displayusers1.html" class="nav-link text-dark">
+                        <img src="images/view.png" alt="Voir les utilisateurs" class="menu-icon"> <span id="viewUsersLink">Voir les utilisateurs</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageParam1.html" class="nav-link text-dark">
+                        <img src="images/settings.png" alt="Paramètres" class="menu-icon"> <span id="settingsLink">Paramètres</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Bouton de Déconnexion -->
+            <button class="btn btn-danger w-100 mt-5" id="logoutButton">Déconnexion</button>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1 class="text-center mb-4" id="reportsTitle">Rapports</h1>
+
+            <!-- Section 1: Remarques des clients -->
+            <div class="card mb-5">
+                <div class="card-header" id="clientRemarksTitle">Remarques des Clients</div>
+                <div class="card-body">
+                    <form id="clientRemarksForm">
+                        <div class="mb-3">
+                            <label for="productName" class="form-label" id="productNameLabel">Nom du produit</label>
+                            <input type="text" id="productName" class="form-control" placeholder="Entrez le nom du produit" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productSize" class="form-label" id="productSizeLabel">Taille</label>
+                            <input type="text" id="productSize" class="form-control" placeholder="Entrez la taille du produit" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productColor" class="form-label" id="productColorLabel">Couleur</label>
+                            <input type="text" id="productColor" class="form-control" placeholder="Entrez la couleur du produit" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clientComment" class="form-label" id="clientCommentLabel">Commentaire du client</label>
+                            <textarea id="clientComment" class="form-control" rows="3" placeholder="Entrez le commentaire" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-custom w-100" id="addRemarkButton" disabled>Ajouter Remarque</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Section 2: Rapports des directeurs -->
+            <div class="card mb-5">
+                <div class="card-header" id="directorReportsTitle">Rapports des Directeurs</div>
+                <div class="card-body">
+                    <form id="directorReportsForm">
+                        <div class="mb-3">
+                            <label for="employeeName" class="form-label" id="employeeNameLabel">Nom et Prénom</label>
+                            <input type="text" id="employeeName" class="form-control" placeholder="Entrez le nom complet de l'employé" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeId" class="form-label" id="employeeIdLabel">Numéro d'employé</label>
+                            <input type="text" id="employeeId" class="form-control" placeholder="Entrez le numéro d'employé" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="directorComment" class="form-label" id="directorCommentLabel">Commentaire du directeur</label>
+                            <textarea id="directorComment" class="form-control" rows="3" placeholder="Entrez le commentaire" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="urgencyLevel" class="form-label" id="urgencyLevelLabel">Niveau d'urgence</label>
+                            <select id="urgencyLevel" class="form-select" required>
+                                <option value="" selected disabled>Choisir un niveau</option>
+                                <option value="urgent" class="badge-urgent">Urgent (Rouge)</option>
+                                <option value="important" class="badge-important">Important (Orange)</option>
+                                <option value="note" class="badge-note">À noter (Jaune)</option>
+                                <option value="resolved" class="badge-resolved">Résolu (Vert)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-custom w-100" id="submitReportButton" disabled>Soumettre Rapport</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Section 3: Rapports du contrôle qualité -->
+            <div class="card">
+                <div class="card-header" id="qualityReportsTitle">Rapports du Contrôle Qualité</div>
+                <div class="card-body">
+                    <form id="qualityReportsForm">
+                        <div class="mb-3">
+                            <label for="supplierName" class="form-label" id="supplierNameLabel">Nom de l'entreprise</label>
+                            <input type="text" id="supplierName" class="form-control" placeholder="Entrez le nom de l'entreprise" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="supplierAddress" class="form-label" id="supplierAddressLabel">Adresse</label>
+                            <input type="text" id="supplierAddress" class="form-control" placeholder="Entrez l'adresse de l'entreprise" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="supplierPhone" class="form-label" id="supplierPhoneLabel">Numéro de téléphone</label>
+                            <input type="text" id="supplierPhone" class="form-control" placeholder="Entrez le numéro de téléphone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productDefect" class="form-label" id="productDefectLabel">Produit et défaut</label>
+                            <textarea id="productDefect" class="form-control" rows="2" placeholder="Entrez le produit et le défaut" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="returnDate" class="form-label" id="returnDateLabel">Date de retour</label>
+                            <input type="date" id="returnDate" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-custom w-100" id="saveReportButton" disabled>Enregistrer Rapport</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up pour les messages de confirmation -->
+    <div id="confirmationPopup" class="popup-overlay">
+        <div class="popup-content">
+            <img src="images/check.gif" alt="Check" class="check-gif">
+            <p id="confirmationMessage"></p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts/pageRapport1.js"></script>
+</body>
+</html>

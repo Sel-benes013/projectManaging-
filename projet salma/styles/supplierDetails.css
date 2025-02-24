@@ -1,0 +1,212 @@
+/* supplierDetails.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Sidebar for LTR (French and English) */
+.sidebar {
+    background-color: #f8bbd0; /* Rose pastel */
+    border-right: 2px solid #ec407a;
+    height: 100vh; /* Full height */
+    position: fixed; /* Fix the sidebar in place */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 250px; /* Set a fixed width for the sidebar */
+    overflow-y: auto; /* Allow scrolling if content exceeds height */
+    z-index: 1; /* Ensure the sidebar stays above other content */
+    padding: 20px;
+    transition: all 0.3s ease; /* Smooth transition for RTL/LTR changes */
+}
+
+/* Sidebar for RTL (Arabic) */
+[dir="rtl"] .sidebar {
+    left: auto; /* Remove left positioning */
+    right: 0; /* Align to the right */
+    border-right: none; /* Remove right border */
+    border-left: 2px solid #ec407a; /* Add left border */
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+    margin-bottom: 15px;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    color: #333;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #ec407a;
+    color: white;
+}
+
+.sidebar .menu-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.sidebar .btn-danger {
+    margin-top: 20px;
+    background-color: #ec407a;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .btn-danger:hover {
+    background-color: #d81b60;
+}
+
+.main-content {
+    margin-left: 270px; /* Adjusted to account for the sidebar width */
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Ensure it takes the full height of the viewport */
+    width: calc(100% - 270px); /* Ensure the main content takes the remaining width */
+}
+
+[dir="rtl"] .main-content {
+    margin-left: 0; /* Remove left margin for RTL */
+    margin-right: 270px; /* Add right margin for RTL */
+}
+
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 90%; /* Make the card two times wider */
+    max-width: 1200px; /* Adjusted to make the card two times wider */
+    margin: 0 auto; /* Center the card */
+    margin-top: -50px; /* Lift the card up slightly */
+    height: auto; /* Allow the height to adjust based on content */
+    padding: 40px; /* Increased padding for larger card */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    background-color: #ec407a; /* Rose pastel */
+    color: white; /* White text for contrast */
+    font-size: 2rem; /* Larger font size for the header */
+    font-weight: 600;
+    padding: 30px; /* Increased padding for larger card */
+    text-align: center; /* Center the text */
+}
+
+.details-content {
+    padding: 30px; /* Increased padding for larger card */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.details-content p {
+    font-size: 1.5rem; /* Larger font size for the content */
+    margin-bottom: 20px; /* Increased margin for larger card */
+    color: #333;
+}
+
+.details-content strong {
+    color: #ec407a; /* Rose pastel */
+}
+
+.btn-custom, .btn-secondary {
+    margin: 10px; /* Increased margin for larger card */
+    padding: 15px 30px; /* Increased padding for larger card */
+    font-size: 1.2rem; /* Larger font size for buttons */
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-custom:hover, .btn-secondary:hover {
+    transform: translateY(-3px);
+}
+
+.btn-custom {
+    background-color: #ec407a; /* Rose pastel */
+    border: none;
+    color: white; /* Ensure text is white */
+}
+
+.btn-custom:hover {
+    background-color: #d81b60; /* Darker rose pastel on hover */
+    color: white; /* Ensure text remains white on hover */
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Override Bootstrap's .bg-primary class */
+.bg-primary {
+    background-color: #ec407a !important; /* Rose pastel */
+    color: white !important; /* Ensure text is white for contrast */
+}
+
+/* Popup Message Styling */
+.popup-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1000;
+    width: 400px; /* Larger popup */
+    text-align: center;
+}
+
+.popup-gif {
+    width: 80px; /* Larger GIF */
+    height: 80px; /* Larger GIF */
+    margin-bottom: 20px;
+}
+
+.popup-text {
+    font-size: 1.5rem; /* Larger text */
+    color: #333;
+    font-weight: 600;
+}
+
+/* Blurred Background Overlay */
+.blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    backdrop-filter: blur(8px); /* Blur effect */
+    z-index: 999; /* Below the popup */
+    display: none;
+}

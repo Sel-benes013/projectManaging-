@@ -1,0 +1,138 @@
+/* pageParam1.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fce4ec; /* Rose pâle */
+}
+
+.sidebar {
+    background-color: #f8bbd0; /* Rose pastel */
+    border-right: 2px solid #ec407a;
+    height: 100vh; /* Full height */
+}
+
+.sidebar h2 {
+    color: #000000; /* Noir */
+    font-family: 'Montserrat', sans-serif; /* Police élégante */
+    font-weight: 700; /* Gras */
+    font-size: 1.8rem; /* Taille de police légèrement plus grande */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour le texte */
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #000000; /* Noir */
+}
+
+.nav-link:hover {
+    background-color: #f48fb1; /* Rose clair */
+    color: #ffffff; /* Blanc au survol */
+    transform: translateY(-5px); /* Effet de flottement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+}
+
+.btn-danger {
+    background-color: #ec407a; /* Rose vif */
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #d81b60; /* Rose plus foncé */
+}
+
+.main-content {
+    flex: 1; /* Take remaining space */
+    padding: 20px;
+    background-color: #ffe8e8; /* Beige rosé */
+}
+
+.card {
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #f8bbd0; /* Rose pastel */
+    border-bottom: 2px solid #ec407a;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif; /* Police élégante pour les en-têtes */
+    font-size: 1.5rem; /* Taille de police plus grande */
+    color: #000000; /* Noir */
+}
+
+.table th {
+    background-color: #ec407a; /* Rose vif */
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif; /* Police élégante pour les en-têtes de tableau */
+    font-weight: 500; /* Poids moyen */
+}
+
+.table td, .table th {
+    padding: 12px;
+    text-align: center;
+}
+
+.table tbody tr:hover {
+    background-color: #f8bbd0; /* Rose pastel */
+}
+
+.btn-custom {
+    background-color: #ec407a; /* Rose vif */
+    color: white;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #d81b60; /* Rose plus foncé */
+}
+
+h1, h5.section-title {
+    font-family: 'Montserrat', sans-serif; /* Police élégante pour les titres */
+    font-weight: 600; /* Poids semi-gras */
+    color: #000000; /* Noir */
+}
+
+h1 {
+    font-size: 2.5rem; /* Taille de police plus grande pour le titre principal */
+}
+
+h5.section-title {
+    font-size: 1.5rem; /* Taille de police pour les sous-titres */
+    margin-bottom: 1rem; /* Espacement en bas */
+}
+
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* Popup Message Styles */
+.popup-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-gif {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.popup-message p {
+    margin: 0;
+    font-size: 1rem;
+    color: #000;
+}

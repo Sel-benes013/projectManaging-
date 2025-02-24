@@ -1,0 +1,310 @@
+/* styles/products.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+.sidebar {
+    background-color: #f8bbd0; /* Rose pastel */
+    border-right: 2px solid #ec407a;
+    height: 100vh; /* Full height */
+    position: fixed; /* Fix the sidebar in place */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 250px; /* Set a fixed width for the sidebar */
+    overflow-y: auto; /* Allow scrolling if content exceeds height */
+    z-index: 1; /* Ensure the sidebar stays above other content */
+}
+
+/* RTL-specific styles */
+[dir="rtl"] .sidebar {
+    left: auto; /* Remove left positioning */
+    right: 0; /* Position the sidebar on the right */
+    border-right: none; /* Remove the right border */
+    border-left: 2px solid #ec407a; /* Add a left border */
+}
+
+[dir="rtl"] .main-content {
+    margin-left: 0; /* Remove left margin */
+    margin-right: 250px; /* Add right margin for the sidebar */
+}
+
+/* Ensure the modify button remains pink */
+.btn-primary {
+    background-color: #ec407a; /* Rose vif */
+    border: none;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #d81b60; /* Rose plus foncé */
+}
+
+/* Rest of your CSS remains unchanged */
+.sidebar h2 {
+    color: #000000; /* Noir */
+    font-family: 'Montserrat', sans-serif; /* Police élégante */
+    font-weight: 700; /* Gras */
+    font-size: 1.8rem; /* Taille de police légèrement plus grande */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour le texte */
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #000000; /* Noir */
+}
+
+.nav-link:hover {
+    background-color: #f48fb1; /* Rose clair */
+    color: #ffffff; /* Blanc au survol */
+    transform: translateY(-5px); /* Effet de flottement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+}
+
+.btn-danger {
+    background-color: #ec407a; /* Rose vif */
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #d81b60; /* Rose plus foncé */
+}
+
+.main-content {
+    flex: 1; /* Take remaining space */
+    padding: 20px;
+    background-color: #ffe8e8; /* Beige rosé */
+    margin-left: 250px; /* Add margin to account for the fixed sidebar */
+}
+
+.card {
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Container for the product image and logo */
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Logo overlay */
+.logo-overlay {
+    position: absolute;
+    top: 10px; /* Adjust the position as needed */
+    left: 10px; /* Adjust the position as needed */
+    z-index: 2; /* Ensure the logo is above the product image */
+}
+
+/* Logo image */
+.logo-img {
+    width: 30px; /* Adjust the size of the logo as needed */
+    height: auto; /* Maintain aspect ratio */
+    opacity: 0.8; /* Adjust the opacity if needed */
+    transition: opacity 0.3s ease;
+}
+
+/* Optional: Add a hover effect to the logo */
+.logo-img:hover {
+    opacity: 1; /* Make the logo fully visible on hover */
+}
+
+.card-img-top {
+    border-radius: 12px 12px 0 0;
+    width: 100%; /* Ensure the image takes the full width of the card */
+    height: auto; /* Allow the height to adjust based on the aspect ratio */
+    max-height: 300px; /* Set a maximum height to maintain consistency */
+    object-fit: contain; /* Ensures the image fits within the container without cropping */
+    object-position: center center; /* Focus on the center of the image */
+    transition: transform 0.3s ease;
+    border-radius: 12px; /* Add rounded corners to the image */
+    background-color: #f2f1ef; /* Match the surrounding area with the image background */
+}
+
+.card-img-top:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #343a40; /* Dark gray */
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #6c757d; /* Gray */
+}
+
+.form-control, .form-select {
+    border-radius: 12px;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #ec407a;
+    box-shadow: 0 0 5px rgba(236, 64, 122, 0.5);
+}
+
+.badge {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-radius: 12px;
+}
+
+.badge-success {
+    background-color: #28a745;
+}
+
+.badge-warning {
+    background-color: #ffc107;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+}
+
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* Modern Modal Styles */
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background-color: #ec407a; /* Rose vif */
+    color: white;
+    border-radius: 12px 12px 0 0;
+}
+
+.modal-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    border-top: none;
+    padding: 1rem;
+}
+
+.modal-footer .btn-primary {
+    background-color: #ec407a;
+    border: none;
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: #d81b60;
+}
+
+/* RTL-specific modal close button */
+[dir="rtl"] .modal-header .btn-close {
+    margin-left: 0; /* Remove default margin */
+    margin-right: auto; /* Push the close button to the left */
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    animation: slideIn 0.5s ease-out;
+}
+
+.notification-gif {
+    width: 30px;
+    height: 30px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* RTL-specific notification positioning */
+[dir="rtl"] .notification {
+    right: 20px;
+    left: auto;
+}
+
+[dir="ltr"] .notification {
+    left: 20px;
+    right: auto;
+}
+
+/* Warning icon styles */
+.warning-icon-container {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle; /* Align with the stock text */
+}
+
+.warning-icon {
+    width: 3em; /* 3 times bigger than the font size */
+    height: 3em; /* 3 times bigger than the font size */
+    vertical-align: middle; /* Align with the text */
+    margin-left: 5px; /* Add some spacing between the stock number and the icon */
+    pointer-events: none; /* Make the icon non-clickable */
+}
+
+/* Tooltip styles */
+.warning-icon-container::after {
+    content: attr(title); /* Display the title attribute as tooltip */
+    position: absolute;
+    bottom: 100%; /* Position above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background for tooltip */
+    color: white; /* White text */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    white-space: nowrap; /* Prevent text from wrapping */
+    opacity: 0; /* Hide by default */
+    visibility: hidden; /* Hide by default */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.warning-icon-container:hover::after {
+    opacity: 1; /* Show tooltip on hover */
+    visibility: visible; /* Show tooltip on hover */
+}

@@ -1,0 +1,79 @@
+/* Custom Styles */
+body {
+    background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header img {
+    width: 150px; /* Increased logo size */
+    height: 150px; /* Increased logo size */
+    margin-bottom: 1rem;
+}
+
+.login-form {
+    margin-bottom: 1rem;
+}
+
+.form-floating {
+    margin-bottom: 1rem;
+}
+
+.language-selector {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.language-btn {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.language-btn:hover, .language-btn.active {
+    background-color: #8ec5fc;
+    color: white;
+}
+
+.error-message {
+    color: #dc3545;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    display: none;
+}
+
+[dir="rtl"] .language-selector {
+    left: 20px;
+    right: auto;
+}
+
+/* Updated button styles */
+.btn-primary {
+    background-color: #ec407a; /* New button color */
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #d81b60; /* Darker shade for hover effect */
+}

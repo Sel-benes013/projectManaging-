@@ -1,0 +1,175 @@
+/* pageFournisseur1.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fce4ec; /* Rose pâle */
+}
+
+.sidebar {
+    background-color: #f8bbd0; /* Rose pastel */
+    border-right: 2px solid #ec407a;
+    height: 100vh; /* Full height */
+    position: fixed; /* Fix the sidebar in place */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 250px; /* Set a fixed width for the sidebar */
+    overflow-y: auto; /* Allow scrolling if content exceeds height */
+    z-index: 1; /* Ensure the sidebar stays above other content */
+}
+
+/* RTL-specific styles */
+[dir="rtl"] .sidebar {
+    left: auto; /* Remove left positioning */
+    right: 0; /* Position the sidebar on the right */
+    border-right: none; /* Remove the right border */
+    border-left: 2px solid #ec407a; /* Add a left border */
+}
+
+[dir="rtl"] .main-content {
+    margin-left: 0; /* Remove left margin */
+    margin-right: 250px; /* Add right margin for the sidebar */
+}
+
+.sidebar h2 {
+    color: #000000; /* Noir */
+    font-family: 'Montserrat', sans-serif; /* Police élégante */
+    font-weight: 700; /* Gras */
+    font-size: 1.8rem; /* Taille de police légèrement plus grande */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour le texte */
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #000000; /* Noir */
+}
+
+.nav-link:hover {
+    background-color: #f48fb1; /* Rose clair */
+    color: #ffffff; /* Blanc au survol */
+    transform: translateY(-5px); /* Effet de flottement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+}
+
+.btn-danger {
+    background-color: #ec407a; /* Rose vif */
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #d81b60; /* Rose plus foncé */
+}
+
+.main-content {
+    flex: 1; /* Take remaining space */
+    padding: 20px;
+    background-color: #ffe8e8; /* Beige rosé */
+    margin-left: 250px; /* Add margin to account for the fixed sidebar */
+}
+
+.card {
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #f8bbd0; /* Rose pastel */
+    border-bottom: 2px solid #ec407a;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif; /* Police élégante pour les en-têtes */
+    font-size: 1.5rem; /* Taille de police plus grande */
+    color: #000000; /* Noir */
+}
+
+.table th {
+    background-color: #ec407a; /* Rose vif */
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif; /* Police élégante pour les en-têtes de tableau */
+    font-weight: 500; /* Poids moyen */
+}
+
+.table td, .table th {
+    padding: 12px;
+    text-align: center;
+}
+
+.table tbody tr:hover {
+    background-color: #f8bbd0; /* Rose pastel */
+}
+
+.btn-custom {
+    background-color: #ec407a; /* Rose vif */
+    color: white;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #d81b60; /* Rose plus foncé */
+}
+
+h1, h5.section-title {
+    font-family: 'Montserrat', sans-serif; /* Police élégante pour les titres */
+    font-weight: 600; /* Poids semi-gras */
+    color: #000000; /* Noir */
+}
+
+h1 {
+    font-size: 2.5rem; /* Taille de police plus grande pour le titre principal */
+}
+
+h5.section-title {
+    font-size: 1.5rem; /* Taille de police pour les sous-titres */
+    margin-bottom: 1rem; /* Espacement en bas */
+}
+
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* Popup Message Styling */
+.popup-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1000;
+    width: 400px; /* Larger popup */
+    text-align: center;
+}
+
+.popup-gif {
+    width: 80px; /* Larger GIF */
+    height: 80px; /* Larger GIF */
+    margin-bottom: 20px;
+}
+
+.popup-text {
+    font-size: 1.5rem; /* Larger text */
+    color: #333;
+    font-weight: 600;
+}
+
+/* Blurred Background Overlay */
+.blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    backdrop-filter: blur(8px); /* Blur effect */
+    z-index: 999; /* Below the popup */
+    display: none;
+}

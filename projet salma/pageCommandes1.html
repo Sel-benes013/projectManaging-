@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commandes</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logobg.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/pageCommandes1.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar p-3">
+            <h2 class="text-center text-uppercase" id="menuTitle">Menu</h2>
+            <ul class="nav flex-column mt-4">
+                <li class="nav-item mb-3">
+                    <a href="globlaWebSite1.html" class="nav-link text-dark">
+                        <img src="images/home.png" alt="Accueil" class="menu-icon"> <span id="homeLink">Accueil</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="dashboard1.html" class="nav-link text-dark">
+                        <img src="images/dashboard.png" alt="Dashboard" class="menu-icon"> <span id="dashboardLink">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="page1.html" class="nav-link text-dark">
+                        <img src="images/products.png" alt="Produits" class="menu-icon"> <span id="productsLink">Produits</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageCommandes1.html" class="nav-link text-dark">
+                        <img src="images/orders.png" alt="Commandes" class="menu-icon"> <span id="ordersLink">Commandes</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageFournisseur1.html" class="nav-link text-dark">
+                        <img src="images/suppliers.png" alt="Fournisseurs" class="menu-icon"> <span id="suppliersLink">Fournisseurs</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageRapport1.html" class="nav-link text-dark">
+                        <img src="images/reports.png" alt="Rapports" class="menu-icon"> <span id="reportsLink">Rapports</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="createuser1.html" class="nav-link text-dark">
+                        <img src="images/add.png" alt="Créer un utilisateur" class="menu-icon"> <span id="createUserLink">Créer un utilisateur</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="displayusers1.html" class="nav-link text-dark">
+                        <img src="images/view.png" alt="Voir les utilisateurs" class="menu-icon"> <span id="viewUsersLink">Voir les utilisateurs</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageParam1.html" class="nav-link text-dark">
+                        <img src="images/settings.png" alt="Paramètres" class="menu-icon"> <span id="settingsLink">Paramètres</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Bouton de Déconnexion -->
+            <button class="btn btn-danger w-100 mt-5" id="logoutButton">Déconnexion</button>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1 class="text-center mb-4" id="ordersTitle">Gestion des Commandes</h1>
+
+            <!-- Section Commandes Reçues -->
+            <div class="card mb-5">
+                <div class="card-header bg-dark text-white" id="receivedOrdersHeader">
+                    Commandes Reçues
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="filterName" placeholder="Filtrer par nom">
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control" id="sortOrder">
+                                <option value="asc">Trier par nom (A-Z)</option>
+                                <option value="desc">Trier par nom (Z-A)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-custom" id="exportCSV">Exporter en CSV</button>
+                        </div>
+                    </div>
+                    <table class="table table-bordered mt-3" id="commandeTable">
+                        <thead>
+                            <tr>
+                                <th id="fullNameHeader">Nom Complet</th>
+                                <th id="addressHeader">Adresse</th>
+                                <th id="phoneHeader">Téléphone</th>
+                                <th id="itemsHeader">Articles</th>
+                                <th id="actionsHeader">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="commandeTableBody">
+                            <!-- Les commandes seront ajoutées dynamiquement ici -->
+                        </tbody>
+                    </table>
+                    <nav>
+                        <ul class="pagination justify-content-center" id="pagination">
+                            <!-- La pagination sera ajoutée dynamiquement ici -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Section Ajouter une Commande -->
+            <div class="card mb-5">
+                <div class="card-header bg-dark text-white" id="addOrderHeader">
+                    Ajouter une Commande
+                </div>
+                <div class="card-body">
+                    <form id="commandeForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="nomClient" class="form-label" id="clientNameLabel">Nom du Client</label>
+                                <input type="text" class="form-control" id="nomClient" placeholder="Entrez le nom du client" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="prenomClient" class="form-label" id="clientFirstNameLabel">Prénom du Client</label>
+                                <input type="text" class="form-control" id="prenomClient" placeholder="Entrez le prénom du client" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="adresseClient" class="form-label" id="clientAddressLabel">Adresse de Réception</label>
+                                <input type="text" class="form-control" id="adresseClient" placeholder="Entrez l'adresse de réception" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="telephoneClient" class="form-label" id="clientPhoneLabel">Numéro de Téléphone</label>
+                                <input type="tel" class="form-control" id="telephoneClient" placeholder="Entrez le numéro de téléphone" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="articlesCommandes" class="form-label" id="itemsOrderedLabel">Articles Commandés</label>
+                                <textarea class="form-control" id="articlesCommandes" rows="3" placeholder="Exemple: T-shirt (taille M, couleur noire), Pantalon (taille L, couleur bleu)" required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-custom mt-3" id="addOrderButton">Ajouter la Commande</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Message -->
+    <div id="popupMessage" class="popup-message" style="display: none;">
+        <img id="popupGif" src="" alt="Status GIF" class="popup-gif">
+        <p id="popupText"></p>
+    </div>
+
+    <!-- Blurred Background Overlay -->
+    <div id="blurOverlay" class="blur-overlay" style="display: none;"></div>
+
+    <!-- Modal pour modifier une commande -->
+    <div id="editOrderModal" class="modal fade" tabindex="-1" aria-labelledby="editOrderModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editOrderModalLabel">Modifier la Commande</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editOrderForm">
+                        <div class="mb-3">
+                            <label for="editNomClient" class="form-label">Nom du Client</label>
+                            <input type="text" class="form-control" id="editNomClient" placeholder="Entrez le nom du client" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPrenomClient" class="form-label">Prénom du Client</label>
+                            <input type="text" class="form-control" id="editPrenomClient" placeholder="Entrez le prénom du client" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editAdresseClient" class="form-label">Adresse de Réception</label>
+                            <input type="text" class="form-control" id="editAdresseClient" placeholder="Entrez l'adresse de réception" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editTelephoneClient" class="form-label">Numéro de Téléphone</label>
+                            <input type="tel" class="form-control" id="editTelephoneClient" placeholder="Entrez le numéro de téléphone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editArticlesCommandes" class="form-label">Articles Commandés</label>
+                            <textarea class="form-control" id="editArticlesCommandes" rows="3" placeholder="Exemple: T-shirt (taille M, couleur noire), Pantalon (taille L, couleur bleu)" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-custom" onclick="saveEditedOrder()">Enregistrer les modifications</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts/pageCommandes1.js"></script>
+
+    <script>
+        // Translations for pageCommandes1.html
+        const translations = {
+            fr: {
+                menuTitle: 'Menu',
+                homeLink: 'Accueil',
+                dashboardLink: 'Dashboard',
+                productsLink: 'Produits',
+                ordersLink: 'Commandes',
+                suppliersLink: 'Fournisseurs',
+                reportsLink: 'Rapports',
+                settingsLink: 'Paramètres',
+                createUserLink: 'Créer un utilisateur',
+                viewUsersLink: 'Voir les utilisateurs',
+                ordersTitle: 'Gestion des Commandes',
+                receivedOrdersHeader: 'Commandes Reçues',
+                ordersListTitle: 'Liste des Commandes',
+                fullNameHeader: 'Nom Complet',
+                addressHeader: 'Adresse',
+                phoneHeader: 'Téléphone',
+                itemsHeader: 'Articles',
+                actionsHeader: 'Actions',
+                addOrderHeader: 'Ajouter une Commande',
+                clientNameLabel: 'Nom du Client',
+                clientFirstNameLabel: 'Prénom du Client',
+                clientAddressLabel: 'Adresse de Réception',
+                clientPhoneLabel: 'Numéro de Téléphone',
+                itemsOrderedLabel: 'Articles Commandés',
+                addOrderButton: 'Ajouter la Commande',
+                storeSalesHeader: 'Ventes en Magasin',
+                salesListTitle: 'Liste des Ventes',
+                itemHeader: 'Article',
+                sizeHeader: 'Taille',
+                priceHeader: 'Prix',
+                addSaleHeader: 'Ajouter une Vente',
+                itemSoldLabel: 'Article',
+                saleSizeLabel: 'Taille',
+                salePriceLabel: 'Prix',
+                addSaleButton: 'Ajouter la Vente',
+                logoutButton: 'Déconnexion',
+                orderAddedSuccess: 'Commande ajoutée avec succès!',
+                orderDeletedSuccess: 'Commande supprimée avec succès!',
+                orderUpdatedSuccess: 'Commande modifiée avec succès!',
+                saleAddedSuccess: 'Vente ajoutée avec succès!',
+                saleDeletedSuccess: 'Vente supprimée avec succès!',
+                filterPlaceholder: 'Filtrer par nom',
+                sortAsc: 'Trier par nom (A-Z)',
+                sortDesc: 'Trier par nom (Z-A)',
+                exportCSV: 'Exporter en CSV',
+                viewDetails: 'Voir les détails',
+                edit: 'Modifier',
+                delete: 'Supprimer',
+                deleteConfirmation: 'Êtes-vous sûr de vouloir supprimer cette commande?',
+                // Placeholders
+                clientNamePlaceholder: 'Entrez le nom du client',
+                clientFirstNamePlaceholder: 'Entrez le prénom du client',
+                clientAddressPlaceholder: 'Entrez l\'adresse de réception',
+                clientPhonePlaceholder: 'Entrez le numéro de téléphone',
+                itemsOrderedPlaceholder: 'Exemple: T-shirt (taille M, couleur noire), Pantalon (taille L, couleur bleu)'
+            },
+            en: {
+                menuTitle: 'Menu',
+                homeLink: 'Home',
+                dashboardLink: 'Dashboard',
+                productsLink: 'Products',
+                ordersLink: 'Orders',
+                suppliersLink: 'Suppliers',
+                reportsLink: 'Reports',
+                settingsLink: 'Settings',
+                createUserLink: 'Create User',
+                viewUsersLink: 'View Users',
+                ordersTitle: 'Orders Management',
+                receivedOrdersHeader: 'Received Orders',
+                ordersListTitle: 'Orders List',
+                fullNameHeader: 'Full Name',
+                addressHeader: 'Address',
+                phoneHeader: 'Phone',
+                itemsHeader: 'Items',
+                actionsHeader: 'Actions',
+                addOrderHeader: 'Add an Order',
+                clientNameLabel: 'Client Name',
+                clientFirstNameLabel: 'Client First Name',
+                clientAddressLabel: 'Delivery Address',
+                clientPhoneLabel: 'Phone Number',
+                itemsOrderedLabel: 'Ordered Items',
+                addOrderButton: 'Add Order',
+                storeSalesHeader: 'Store Sales',
+                salesListTitle: 'Sales List',
+                itemHeader: 'Item',
+                sizeHeader: 'Size',
+                priceHeader: 'Price',
+                addSaleHeader: 'Add a Sale',
+                itemSoldLabel: 'Item',
+                saleSizeLabel: 'Size',
+                salePriceLabel: 'Price',
+                addSaleButton: 'Add Sale',
+                logoutButton: 'Logout',
+                orderAddedSuccess: 'Order added successfully!',
+                orderDeletedSuccess: 'Order deleted successfully!',
+                orderUpdatedSuccess: 'Order updated successfully!',
+                saleAddedSuccess: 'Sale added successfully!',
+                saleDeletedSuccess: 'Sale deleted successfully!',
+                filterPlaceholder: 'Filter by name',
+                sortAsc: 'Sort by name (A-Z)',
+                sortDesc: 'Sort by name (Z-A)',
+                exportCSV: 'Export to CSV',
+                viewDetails: 'View Details',
+                edit: 'Edit',
+                delete: 'Delete',
+                deleteConfirmation: 'Are you sure you want to delete this order?',
+                // Placeholders
+                clientNamePlaceholder: 'Enter the client name',
+                clientFirstNamePlaceholder: 'Enter the client first name',
+                clientAddressPlaceholder: 'Enter the delivery address',
+                clientPhonePlaceholder: 'Enter the phone number',
+                itemsOrderedPlaceholder: 'Example: T-shirt (size M, black), Pants (size L, blue)'
+            },
+            ar: {
+                menuTitle: 'القائمة',
+                homeLink: 'الصفحة الرئيسية',
+                dashboardLink: 'لوحة التحكم',
+                productsLink: 'المنتجات',
+                ordersLink: 'الطلبات',
+                suppliersLink: 'الموردين',
+                reportsLink: 'التقارير',
+                settingsLink: 'الإعدادات',
+                createUserLink: 'إنشاء مستخدم',
+                viewUsersLink: 'عرض المستخدمين',
+                ordersTitle: 'إدارة الطلبات',
+                receivedOrdersHeader: 'الطلبات المستلمة',
+                ordersListTitle: 'قائمة الطلبات',
+                fullNameHeader: 'الاسم الكامل',
+                addressHeader: 'العنوان',
+                phoneHeader: 'الهاتف',
+                itemsHeader: 'العناصر',
+                actionsHeader: 'الإجراءات',
+                addOrderHeader: 'إضافة طلب',
+                clientNameLabel: 'اسم العميل',
+                clientFirstNameLabel: 'اسم العميل الأول',
+                clientAddressLabel: 'عنوان التسليم',
+                clientPhoneLabel: 'رقم الهاتف',
+                itemsOrderedLabel: 'العناصر المطلوبة',
+                addOrderButton: 'إضافة الطلب',
+                storeSalesHeader: 'مبيعات المتجر',
+                salesListTitle: 'قائمة المبيعات',
+                itemHeader: 'العنصر',
+                sizeHeader: 'الحجم',
+                priceHeader: 'السعر',
+                addSaleHeader: 'إضافة بيع',
+                itemSoldLabel: 'العنصر',
+                saleSizeLabel: 'الحجم',
+                salePriceLabel: 'السعر',
+                addSaleButton: 'إضافة البيع',
+                logoutButton: 'تسجيل الخروج',
+                orderAddedSuccess: 'تمت إضافة الطلب بنجاح!',
+                orderDeletedSuccess: 'تم حذف الطلب بنجاح!',
+                orderUpdatedSuccess: 'تم تحديث الطلب بنجاح!',
+                saleAddedSuccess: 'تمت إضافة البيع بنجاح!',
+                saleDeletedSuccess: 'تم حذف البيع بنجاح!',
+                filterPlaceholder: 'تصفية حسب الاسم',
+                sortAsc: 'ترتيب حسب الاسم (أ-ي)',
+                sortDesc: 'ترتيب حسب الاسم (ي-أ)',
+                exportCSV: 'تصدير إلى CSV',
+                viewDetails: 'عرض التفاصيل',
+                edit: 'تعديل',
+                delete: 'حذف',
+                deleteConfirmation: 'هل أنت متأكد أنك تريد حذف هذا الطلب؟',
+                // Placeholders
+                clientNamePlaceholder: 'أدخل اسم العميل',
+                clientFirstNamePlaceholder: 'أدخل اسم العميل الأول',
+                clientAddressPlaceholder: 'أدخل عنوان التسليم',
+                clientPhonePlaceholder: 'أدخل رقم الهاتف',
+                itemsOrderedPlaceholder: 'مثال: تي شيرت (حجم M، لون أسود)، بنطلون (حجم L، لون أزرق)'
+            }
+        };
+
+        // Load the selected language from localStorage on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'fr';
+            document.documentElement.lang = savedLang;
+            document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
+            applyTranslations(savedLang);
+        });
+
+        // Apply translations
+        function applyTranslations(lang) {
+            const translation = translations[lang];
+            for (const [key, value] of Object.entries(translation)) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = value;
+                }
+            }
+
+            // Apply placeholders
+            document.getElementById('nomClient').placeholder = translation.clientNamePlaceholder;
+            document.getElementById('prenomClient').placeholder = translation.clientFirstNamePlaceholder;
+            document.getElementById('adresseClient').placeholder = translation.clientAddressPlaceholder;
+            document.getElementById('telephoneClient').placeholder = translation.clientPhonePlaceholder;
+            document.getElementById('articlesCommandes').placeholder = translation.itemsOrderedPlaceholder;
+
+            // Apply filter placeholder
+            document.getElementById('filterName').placeholder = translation.filterPlaceholder;
+
+            // Apply sort options
+            const sortOrder = document.getElementById('sortOrder');
+            if (sortOrder) {
+                sortOrder.innerHTML = `
+                    <option value="asc">${translation.sortAsc}</option>
+                    <option value="desc">${translation.sortDesc}</option>
+                `;
+            }
+        }
+
+        // Logout functionality
+        document.getElementById('logoutButton').addEventListener('click', function () {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

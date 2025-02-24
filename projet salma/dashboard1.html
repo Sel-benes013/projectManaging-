@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logobg.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/dashboard1.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar p-3">
+            <h2 class="text-center text-uppercase" id="menuTitle">Menu</h2>
+            <ul class="nav flex-column mt-4">
+                <li class="nav-item mb-3">
+                    <a href="globlaWebSite1.html" class="nav-link text-dark">
+                        <img src="images/home.png" alt="Accueil" class="menu-icon"> <span id="homeLink">Accueil</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="dashboard1.html" class="nav-link text-dark">
+                        <img src="images/dashboard.png" alt="Dashboard" class="menu-icon"> <span id="dashboardLink">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="page1.html" class="nav-link text-dark">
+                        <img src="images/products.png" alt="Produits" class="menu-icon"> <span id="productsLink">Produits</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageCommandes1.html" class="nav-link text-dark">
+                        <img src="images/orders.png" alt="Commandes" class="menu-icon"> <span id="ordersLink">Commandes</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageFournisseur1.html" class="nav-link text-dark">
+                        <img src="images/suppliers.png" alt="Fournisseurs" class="menu-icon"> <span id="suppliersLink">Fournisseurs</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageRapport1.html" class="nav-link text-dark">
+                        <img src="images/reports.png" alt="Rapports" class="menu-icon"> <span id="reportsLink">Rapports</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="createuser1.html" class="nav-link text-dark">
+                        <img src="images/add.png" alt="Créer un utilisateur" class="menu-icon"> <span id="createUserLink">Créer un utilisateur</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="displayusers1.html" class="nav-link text-dark">
+                        <img src="images/view.png" alt="Voir les utilisateurs" class="menu-icon"> <span id="viewUsersLink">Voir les utilisateurs</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageParam1.html" class="nav-link text-dark">
+                        <img src="images/settings.png" alt="Paramètres" class="menu-icon"> <span id="settingsLink">Paramètres</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Bouton de Déconnexion -->
+            <button class="btn btn-danger w-100 mt-5" id="logoutButton">Déconnexion</button>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Dashboard Title and Currency Dropdown -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="text-center mb-0" id="dashboardTitle">Tableau de Bord</h1>
+                <div class="currency-dropdown">
+                    <select id="currencySelect" class="form-select form-select-sm">
+                        <option value="€">EUR (€)</option>
+                        <option value="$">USD ($)</option>
+                        <option value="MAD">MAD (DH)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" id="totalSalesTitle">Ventes Totales</h5>
+                            <h2 class="mb-2" id="totalSales">26,300 €</h2>
+                            <p class="text-success mb-0" id="growthLabel">+12% vs dernière période</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" id="totalOrdersTitle">Commandes</h5>
+                            <h2 class="mb-2" id="totalOrders">342</h2>
+                            <p class="text-success mb-0" id="conversionRateLabel">85% taux de conversion</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" id="avgPerformanceTitle">Performance</h5>
+                            <h2 class="mb-2" id="avgPerformance">78.2%</h2>
+                            <p class="text-primary mb-0" id="objectiveLabel">Objectif: 80%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="row">
+                <!-- Graphique des ventes hebdomadaires -->
+                <div class="col-md-6">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h5 class="card-title" id="weeklySalesTitle">Ventes Hebdomadaires</h5>
+                            <div class="chart-container">
+                                <canvas id="weeklySalesChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graphique des top produits -->
+                <div class="col-md-6">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h5 class="card-title" id="topProductsTitle">Top Produits</h5>
+                            <div class="chart-container">
+                                <canvas id="topProductsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nouveau graphique : Performance par magasin -->
+                <div class="col-md-6">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h5 class="card-title" id="storePerformanceTitle">Performance par Magasin</h5>
+                            <div class="chart-container">
+                                <canvas id="storePerformanceChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nouveau graphique : Croissance des ventes en ligne vs en magasin -->
+                <div class="col-md-6">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h5 class="card-title" id="salesGrowthTitle">Croissance des Ventes (En Ligne vs En Magasin)</h5>
+                            <div class="chart-container">
+                                <canvas id="salesGrowthChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graphique de performance du personnel -->
+                <div class="col-md-12">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h5 class="card-title" id="staffPerformanceTitle">Performance du Personnel</h5>
+                            <div class="chart-container">
+                                <canvas id="staffPerformanceChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts/dashboard1.js"></script>
+
+    <script>
+        // Logout functionality
+        document.getElementById('logoutButton').addEventListener('click', function () {
+            // Redirect to index.html
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

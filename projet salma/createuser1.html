@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création d'utilisateur</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logobg.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/createuser.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Barre de navigation -->
+        <nav class="sidebar p-3">
+            <h2 class="text-center text-uppercase" id="menuTitle">Menu</h2>
+            <ul class="nav flex-column mt-4">
+                <li class="nav-item mb-3">
+                    <a href="globlaWebSite1.html" class="nav-link text-dark">
+                        <img src="images/home.png" alt="Accueil" class="menu-icon"> <span id="homeLink">Accueil</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="dashboard1.html" class="nav-link text-dark">
+                        <img src="images/dashboard.png" alt="Dashboard" class="menu-icon"> <span id="dashboardLink">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="page1.html" class="nav-link text-dark">
+                        <img src="images/products.png" alt="Produits" class="menu-icon"> <span id="productsLink">Produits</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageCommandes1.html" class="nav-link text-dark">
+                        <img src="images/orders.png" alt="Commandes" class="menu-icon"> <span id="ordersLink">Commandes</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageFournisseur1.html" class="nav-link text-dark">
+                        <img src="images/suppliers.png" alt="Fournisseurs" class="menu-icon"> <span id="suppliersLink">Fournisseurs</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageRapport1.html" class="nav-link text-dark">
+                        <img src="images/reports.png" alt="Rapports" class="menu-icon"> <span id="reportsLink">Rapports</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="createuser1.html" class="nav-link text-dark">
+                        <img src="images/add.png" alt="Créer un utilisateur" class="menu-icon"> <span id="createUserLink">Créer un utilisateur</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="displayusers1.html" class="nav-link text-dark">
+                        <img src="images/view.png" alt="Voir les utilisateurs" class="menu-icon"> <span id="viewUsersLink">Voir les utilisateurs</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a href="pageParam1.html" class="nav-link text-dark">
+                        <img src="images/settings.png" alt="Paramètres" class="menu-icon"> <span id="settingsLink">Paramètres</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Bouton de Déconnexion -->
+            <button class="btn btn-danger w-100 mt-5" id="logoutButton">Déconnexion</button>
+
+            <!-- Script pour gérer la déconnexion -->
+            <script>
+                // Gestion du clic sur le bouton de déconnexion
+                document.getElementById('logoutButton').addEventListener('click', function () {
+                    // Redirection vers la page d'authentification
+                    window.location.href = 'index.html';
+                });
+            </script>
+        </nav>
+
+        <!-- Contenu principal -->
+        <div class="main-content">
+            <h1 class="text-center mb-4" id="createUserTitle">Création d'un utilisateur</h1>
+            <p class="text-center" id="createUserDescription">Remplissez le formulaire ci-dessous pour créer un nouvel utilisateur.</p>
+
+            <!-- Formulaire de création d'utilisateur -->
+            <form id="createUserForm" action="php/createuser.php" method="POST" class="mt-4">
+                <div class="row">
+                    <!-- Numéro d'employé -->
+                    <div class="col-md-6 mb-3">
+                        <label for="employeeNumber" class="form-label" id="employeeNumberLabel">Numéro d'employé</label>
+                        <input type="text" class="form-control" id="employeeNumber" name="employeeNumber" required>
+                    </div>
+
+                    <!-- Nom -->
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName" class="form-label" id="lastNameLabel">Nom</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" required>
+                    </div>
+
+                    <!-- Prénom -->
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName" class="form-label" id="firstNameLabel">Prénom</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName" required>
+                    </div>
+
+                    <!-- Magasin affecté -->
+                    <div class="col-md-6 mb-3">
+                        <label for="store" class="form-label" id="storeLabel">Magasin affecté</label>
+                        <input type="text" class="form-control" id="store" name="store" required>
+                    </div>
+
+                    <!-- Mission -->
+                    <div class="col-md-6 mb-3">
+                        <label for="mission" class="form-label" id="missionLabel">Mission</label>
+                        <input type="text" class="form-control" id="mission" name="mission" required>
+                    </div>
+
+                    <!-- Date de recrutement -->
+                    <div class="col-md-6 mb-3">
+                        <label for="recruitmentDate" class="form-label" id="recruitmentDateLabel">Date de recrutement</label>
+                        <input type="date" class="form-control" id="recruitmentDate" name="recruitmentDate" required>
+                    </div>
+
+                    <!-- Date de début de travail -->
+                    <div class="col-md-6 mb-3">
+                        <label for="startDate" class="form-label" id="startDateLabel">Date de début de travail</label>
+                        <input type="date" class="form-control" id="startDate" name="startDate" required>
+                    </div>
+
+                    <!-- ID utilisateur -->
+                    <div class="col-md-6 mb-3">
+                        <label for="userId" class="form-label" id="userIdLabel">ID utilisateur</label>
+                        <input type="text" class="form-control" id="userId" name="userId" required>
+                    </div>
+
+                    <!-- Mot de passe -->
+                    <div class="col-md-6 mb-3">
+                        <label for="password" class="form-label" id="passwordLabel">Mot de passe</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                </div>
+
+                <!-- Bouton de soumission -->
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-custom" id="createUserButton">Créer l'utilisateur</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Popup Message -->
+    <div id="popupMessage" class="popup-message" style="display: none;">
+        <img id="popupGif" src="" alt="Status GIF" class="popup-gif">
+        <p id="popupText"></p>
+    </div>
+
+    <!-- Blurred Background Overlay -->
+    <div id="blurOverlay" class="blur-overlay" style="display: none;"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts/createuser.js"></script>
+
+    <script>
+        // Translations for createuser.html
+        const translations = {
+            fr: {
+                menuTitle: 'Menu',
+                homeLink: 'Accueil',
+                dashboardLink: 'Dashboard',
+                productsLink: 'Produits',
+                ordersLink: 'Commandes',
+                suppliersLink: 'Fournisseurs',
+                reportsLink: 'Rapports',
+                settingsLink: 'Paramètres',
+                createUserLink: 'Créer un utilisateur',
+                viewUsersLink: 'Voir les utilisateurs',
+                createUserTitle: 'Création d\'un utilisateur',
+                createUserDescription: 'Remplissez le formulaire ci-dessous pour créer un nouvel utilisateur.',
+                employeeNumberLabel: 'Numéro d\'employé',
+                lastNameLabel: 'Nom',
+                firstNameLabel: 'Prénom',
+                storeLabel: 'Magasin affecté',
+                missionLabel: 'Mission',
+                recruitmentDateLabel: 'Date de recrutement',
+                startDateLabel: 'Date de début de travail',
+                userIdLabel: 'ID utilisateur',
+                passwordLabel: 'Mot de passe',
+                createUserButton: 'Créer l\'utilisateur',
+                logoutButton: 'Déconnexion',
+                userAddedSuccess: 'Utilisateur ajouté avec succès!' // Added translation for user added successfully
+            },
+            en: {
+                menuTitle: 'Menu',
+                homeLink: 'Home',
+                dashboardLink: 'Dashboard',
+                productsLink: 'Products',
+                ordersLink: 'Orders',
+                suppliersLink: 'Suppliers',
+                reportsLink: 'Reports',
+                settingsLink: 'Settings',
+                createUserLink: 'Create User',
+                viewUsersLink: 'View Users',
+                createUserTitle: 'Create a User',
+                createUserDescription: 'Fill out the form below to create a new user.',
+                employeeNumberLabel: 'Employee Number',
+                lastNameLabel: 'Last Name',
+                firstNameLabel: 'First Name',
+                storeLabel: 'Assigned Store',
+                missionLabel: 'Mission',
+                recruitmentDateLabel: 'Recruitment Date',
+                startDateLabel: 'Start Date',
+                userIdLabel: 'User ID',
+                passwordLabel: 'Password',
+                createUserButton: 'Create User',
+                logoutButton: 'Logout',
+                userAddedSuccess: 'User added successfully!' // Added translation for user added successfully
+            },
+            ar: {
+                menuTitle: 'القائمة',
+                homeLink: 'الصفحة الرئيسية',
+                dashboardLink: 'لوحة التحكم',
+                productsLink: 'المنتجات',
+                ordersLink: 'الطلبات',
+                suppliersLink: 'الموردين',
+                reportsLink: 'التقارير',
+                settingsLink: 'الإعدادات',
+                createUserLink: 'إنشاء مستخدم',
+                viewUsersLink: 'عرض المستخدمين',
+                createUserTitle: 'إنشاء مستخدم',
+                createUserDescription: 'املأ النموذج أدناه لإنشاء مستخدم جديد.',
+                employeeNumberLabel: 'رقم الموظف',
+                lastNameLabel: 'الاسم الأخير',
+                firstNameLabel: 'الاسم الأول',
+                storeLabel: 'المتجر المعين',
+                missionLabel: 'المهمة',
+                recruitmentDateLabel: 'تاريخ التوظيف',
+                startDateLabel: 'تاريخ البدء',
+                userIdLabel: 'معرف المستخدم',
+                passwordLabel: 'كلمة المرور',
+                createUserButton: 'إنشاء المستخدم',
+                logoutButton: 'تسجيل الخروج',
+                userAddedSuccess: 'تمت إضافة المستخدم بنجاح!' // Added translation for user added successfully
+            }
+        };
+
+        // Load the selected language from localStorage on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'fr';
+            document.documentElement.lang = savedLang;
+            document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
+            applyTranslations(savedLang);
+        });
+
+        // Apply translations
+        function applyTranslations(lang) {
+            const translation = translations[lang];
+            for (const [key, value] of Object.entries(translation)) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = value;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
